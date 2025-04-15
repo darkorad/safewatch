@@ -19,10 +19,12 @@ import {Separator} from '@/components/ui/separator';
 import {Button} from '@/components/ui/button';
 import {useEffect, useState} from 'react';
 import {useToast} from '@/hooks/use-toast';
+import {useRouter} from 'next/navigation';
 
 export function SettingsSidebar() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const {toast} = useToast();
+  const router = useRouter();
 
   useEffect(() => {
     if (isSettingsOpen) {
@@ -35,6 +37,15 @@ export function SettingsSidebar() {
 
   const handleSettingsToggle = () => {
     setIsSettingsOpen(!isSettingsOpen);
+  };
+
+  const handleLogout = () => {
+    // TODO: Implement actual logout functionality
+    toast({
+      title: 'Logged Out',
+      description: 'You have been logged out.',
+    });
+    router.push('/login');
   };
 
   return (
@@ -110,7 +121,7 @@ export function SettingsSidebar() {
         <SidebarFooter>
           <Separator/>
           <div className="p-2">
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full" onClick={handleLogout}>
               Logout
             </Button>
           </div>
