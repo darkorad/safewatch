@@ -1,0 +1,16 @@
+{
+{
+  "appId": "com.example.safewatch",
+  "appName": "SafeWatch",
+  "webDir": ".next",
+  "bundledWebRuntime": false,
+  "plugins": {
+    "FirebaseMessaging": {
+      "presentationOptions": [
+        "badge",
+        "sound",
+        "alert"
+      ]
+    }
+  }
+}
